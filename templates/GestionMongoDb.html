@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es-CO">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyecto BigData - Explorador de Mongo - Universidad Central</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQ2zj3o2QbWtybF0zY0+1sQp8rK4p6f9Uq5pV5zv1pSv5Kp4e5p5p5p5p" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">Proyecto BigData - Universidad Central</h1>
+
+        {# Mostrar mensaje de error si existe #}
+        {% if error_message %}
+            <div class="alert alert-danger" role="alert">
+                {{ error_message }}
+            </div>
+        {% endif %}
+
+        <form method="post" class="mb-4" autocomplete="off">
+            <div class="mb-3">
+                <label for="database" class="form-label">Seleccione una base de datos:</label>
+                <select class="form-select" id="database" name="database" required>
+                    <option value="" {% if not select_db %}selected{% endif %} disabled>Seleccione una base de datos</option>
+                    {% for db_name in databases %}
+                        <option value="{{ db_name }}" {% if select_db == db_name %}selected{% endif %}>{{ db_name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Mostrar colecciones</button>
+        </form>
+
+        {% if select_db %}
+            <h2 class="mt-5">Colecciones en <span class="text-primary">{{ select_db }}</span></h2>
+            {% if collections_data %}
+                <div class="table-responsive">
+                    <table class="table table-striped align-middle">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Nombre de la colección</th>
+                                <th scope="col">Número de documentos</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for collection in collections_data %}
+                                <tr>
+                                    {# Acceso por punto o corchetes según cómo envíes los datos desde el backend #}
+                                    <td>{{ collection.index if collection.index is defined else collection['index'] }}</td>
+                                    <td>{{ collection.name if collection.name is defined else collection['name'] }}</td>
+                                    <td>{{ collection.count if collection.count is defined else collection['count'] }}</td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            {% else %}
+                <div class="alert alert-info" role="alert">
+                    No se encontraron colecciones en esta base de datos.
+                </div>
+            {% endif %}
+        {% else %}
+            <div class="alert alert-info" role="alert">
+                Seleccione una base de datos para ver las colecciones.
+            </div>
+        {% endif %}
+    </div>        
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

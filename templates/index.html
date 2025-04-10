@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es-CO">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyecto Big Data | Análisis de buscadores - Liliana Jiménez C.</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" 
+          integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" 
+          crossorigin="anonymous">
+    <link rel="icon" href="/ruta/al/favicon.ico" type="image/x-icon">
+
+    <style>
+        .nav-link {
+            transition: color 0.3s;
+        }
+        .nav-link:hover {
+            color: #ffc107 !important;
+        }
+    </style>
+</head>
+<body>
+    <header class="bg-primary text-white text-center py-3">
+        <div class="container">
+            <h2 class="mb-3">Proyecto Big Data | Análisis de buscadores - Liliana Jiménez C.</h2>
+            <nav aria-label="Menú principal">
+                <ul class="nav justify-content-center">
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="/">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="/about">Acerca de</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="/login">Ingresar</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="/contacto">Contacto</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container my-5">
+        <h1 class="mt-5">Bienvenidos a mi proyecto de Big Data relacionado con buscadores</h1>
+        <p>Este proyecto explora cómo los motores de búsqueda procesan, priorizan y presentan la información.</p>
+    </main>
+
+    <footer class="bg-light text-center py-3 mt-5">
+        <div class="container">
+            <p class="mb-0">&copy; <span id="current-year"></span> Liliana Jiménez C. Proyecto Big Data.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" 
+            integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" 
+            crossorigin="anonymous"></script>
+    <script>
+        // Mostrar el año actual automáticamente en el footer
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
