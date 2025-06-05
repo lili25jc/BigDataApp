@@ -1,105 +1,64 @@
 <!DOCTYPE html>
 <html lang="es-CO">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Acerca del Proyecto | Big Data - Liliana Jiménez C.</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
-    crossorigin="anonymous" />
-  <link rel="icon" href="/ruta/al/favicon.ico" type="image/x-icon" />
-
-  <style>
-    .nav-link {
-      transition: color 0.3s;
-    }
-
-    .nav-link:hover {
-      color: #ffc107 !important;
-    }
-
-    ul {
-      list-style-type: square;
-      padding-left: 1.2rem;
-    }
-
-    .social-links a {
-      margin-right: 10px;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acerca de - BigData-MiProyecto</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+    <link href="{{ url_for('static', filename='css/landingPage.css') }}" rel="stylesheet">
 </head>
 <body>
-  <!-- Encabezado -->
-  <header class="bg-primary text-white text-center py-3">
+    <header class="header">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-center">
+                <h1 class="h3 mb-0">BigData-MiProyecto</h1>
+                <nav>
+                    <ul class="nav">
+                        <li class="nav-item"><a class="nav-link" href="/">Inicio</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/buscador">Buscador</a></li>
+                        <li class="nav-item"><a class="nav-link active" href="/about"><b>Acerca de</b></a></li>
+                        <li class="nav-item"><a class="nav-link" href="/login">Ingresar</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/contacto">Contacto</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
     <div class="container">
-      <h2 class="mb-3">Acerca de | Big Data - Liliana Jiménez</h2>
-      <nav aria-label="Menú principal">
-        <ul class="nav justify-content-center">
-          <li class="nav-item">
-            <a class="nav-link text-white" href="/">Inicio</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-white" href="/about">Acerca de</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-white" href="/login">Ingresar</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-white" href="/contacto">Contacto</a>
-          </li>
-        </ul>
-      </nav>
+        <h1 class="text-center mb-4">BigData-MiProyecto</h1>
+        <h3 class="text-center mb-4">Descripción del Proyecto</h3>
+        <p class="text-center mb-4">Aplicación web que usa MongoDB para gestionar, analizar y visualizar bases de datos con consultas avanzadas.</p>
+        
+        <div class="row justify-content-center">
+            <div class="col-md-6 text-center">
+                <!-- Cambiar esto: -->
+                <img src="{{ url_for('static', filename='Images/foto.jpg') }}" 
+                    alt="Smiling woman with dark hair wearing glasses, facing the camera in a well-lit indoor setting with a neutral background, conveying a friendly and professional atmosphere" 
+                    class="profile-img" 
+                    style="max-width: 200px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.3); display: block; margin: 1rem auto;">
+                    <h4>{{ creador }}</h4>
+                    <p>Estudiante de Maestría en Analítica de Datos</p>
+                    <p>Universidad Central</p>
+                
+                <div class="social-links mt-3">
+                    <a href="https://github.com/lili25jc/BigDataApp" target="_blank" class="btn btn-primary">GitHub</a>
+                    <a href="https://www.linkedin.com/in/liliana-r-jimenez-castillo-244934261/" target="_blank" class="btn btn-warning">LinkedIn</a>
+                    <a href="https://https://x.com/Liliana50886484" target="_blank"  class="btn btn-success">Twitter</a>
+                </div>
+            </div>
+        </div>
     </div>
-  </header>
 
-  <!-- Contenido principal -->
-  <main class="container my-5">
-    <section class="mb-5">
-      <h1>Acerca de este proyecto</h1>
-      <p class="lead">
-        Este es un proyecto de Big Data desarrollado por <strong>Liliana Jiménez C.</strong>
-        enfocado en la exploración y gestión de bases de datos, especialmente con MongoDB.
-      </p>
-      <p>Para más información, puedes visitar nuestra <a href="/contacto">página de contacto</a>.</p>
-    </section>
+    <footer class="text-center">
+        <p class="mb-0">Creado por {{ creador }}</p>
+        <p class="mb-0" id="current-year"></p>
+        <p class="mb-0" id="version_app">{{ version }}</p>
+    </footer>
 
-    <section class="mb-5">
-      <h2>¿Quién soy?</h2>
-      <ul>
-        <li>Ingeniera Industrial</li>
-        <li>Egresada de la Universidad Central</li>
-        <li>Estudiante de Maestría en Analítica de Datos</li>
-      </ul>
-    </section>
-
-    <section>
-      <h2>Redes Profesionales</h2>
-      <div class="social-links mt-3">
-        <a href="https://www.linkedin.com/in/liliana-r-jimenez-castillo-244934261"
-          target="_blank" rel="noopener noreferrer" class="btn btn-primary">LinkedIn</a>
-        <a href="https://github.com/lili25jc"
-          target="_blank" rel="noopener noreferrer" class="btn btn-dark">GitHub</a>
-      </div>
-    </section>
-  </main>
-
-  <!-- Pie de página -->
-  <footer class="bg-light text-center py-3 mt-5">
-    <div class="container">
-      <p class="mb-0">&copy; <span id="current-year"></span> Liliana Jiménez C. Proyecto Big Data.</p>
-    </div>
-  </footer>
-
-  <!-- Scripts -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-    crossorigin="anonymous"></script>
-  <script>
-    // Mostrar el año actual en el footer (solo si el elemento existe)
-    const yearSpan = document.getElementById('current-year');
-    if (yearSpan) {
-      yearSpan.textContent = new Date().getFullYear();
-    }
-  </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq4cvVmFh9vju3MXgpoK" crossorigin="anonymous"></script>
+    <script>
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
 </body>
 </html>
